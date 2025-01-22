@@ -1,0 +1,4 @@
+package com.learning.ecommerceapi.model.dto.response;
+
+public class ApiResponse {
+}

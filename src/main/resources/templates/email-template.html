@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OTP Verification</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .main {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+        .main img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 24px;
+            color: #007BFF;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .intro {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .otp-code {
+            margin: 20px 0;
+            font-size: 32px;
+            color: #333;
+            font-weight: 700;
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <img src="cid:logo" alt="Logo">
+        <h2 class="title">Prove Your Signer Identity</h2>
+        <p class="intro">Hello <span th:text="${userName}">User</span>,</p>
+        <p class="intro">You are required to enter the following code to verify your account sent by LangNet. Please enter the code in 2 minute.</p>
+        <div class="otp-code" th:text="${message}">NO CODE</div>
+        <p class="description">If this wasn't you, please ignore this email or contact our customer service center: <a href="mailto:support@example.com">support@example.com</a> for further assistance.</p>
+        <div class="footer">
+            <p>Copyright © 2024 Your Company, All rights reserved.</p>
+            <p>1234 Your Street, Your City, Your Country</p>
+            <p><a href="https://www.example.com/about">About Us</a> | <a href="https://www.example.com/contact">Contact Us</a></p>
+        </div>
+    </div>
+</body>
+</html>
