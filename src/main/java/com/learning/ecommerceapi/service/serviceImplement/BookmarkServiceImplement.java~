@@ -50,7 +50,6 @@ public class BookmarkServiceImplement implements BookmarkService {
         Products products = productsRepository.findById(bookmarkId).orElseThrow(() -> new ResourceNotFountException("Product not found with id " + bookmarkId));
         Bookmark bookmark = new Bookmark();
         bookmark.setProductId(products.getProductId());
-        bookmark.setCreatedAt(LocalDateTime.now());
         bookmark.setUserId(users);
         bookmark.setStatus(status);
 

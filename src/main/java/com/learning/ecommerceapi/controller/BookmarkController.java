@@ -4,6 +4,7 @@ import com.learning.ecommerceapi.model.dto.response.ApiResponse;
 import com.learning.ecommerceapi.model.dto.response.BookmarkResponse;
 import com.learning.ecommerceapi.service.BookmarkService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/bookmark")
+@SecurityRequirement(name = "bearerAuth")
 public class BookmarkController {
 
     private final BookmarkService bookmarkService;

@@ -21,6 +21,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -42,6 +43,12 @@ public class UsersServiceImplement implements UsersService {
 
     @Override
     public UserResponse createUser(UserRequest userRequest) {
+
+        Optional<Users> existingUser = usersRepository.findUserByEmail(userRequest.getEmail());
+        if (existingUser.isPresent()) {
+            throw new IllegalArgumentException("User with email " + userRequest.getEmail() + " already exists");
+        }
+
         Users users = new Users();
         users.setUserName(userRequest.getUserName());
         users.setFirstName(userRequest.getFirstName());
@@ -49,6 +56,8 @@ public class UsersServiceImplement implements UsersService {
         users.setEmail(userRequest.getEmail());
         users.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         users.setRoleName(userRequest.getRoleName());
+        users.setOtps(null);
+        users.setIsVerified(false);
         users.setCreatedAt(LocalDateTime.now());
         users.setUpdatedAt(LocalDateTime.now());
         Users savedUser = usersRepository.save(users);

@@ -25,9 +25,15 @@ public class Users {
     private String userName;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
     private String password;
     private String roleName;
+    private Boolean isVerified = false;
+    private Long otpCode;
+    private LocalDateTime otpExpirationDate;
+    private Boolean otpVerified = false;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;

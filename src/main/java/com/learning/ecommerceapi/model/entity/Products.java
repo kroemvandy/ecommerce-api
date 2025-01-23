@@ -35,7 +35,8 @@ public class Products {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "productId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<OrdersProducts> ordersProductsList;
 
     @CreatedDate
